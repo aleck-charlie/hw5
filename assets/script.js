@@ -3,11 +3,12 @@ $(document).ready(function () {
         todaysDate();
         renderTimeBlocks();
         updateRowColor();
-        showTask();
+        saveTask();
         //call local storage
 
     };
 
+   
     function renderTimeBlocks() {
         for (let i = 9; i <= 21; i++) {
             $('.row').append(createTimeBlock(i));
@@ -32,6 +33,8 @@ $(document).ready(function () {
         $("#currentDay").text(moment().format("MMMM Do YYYY"));
     }
 
+ init();
+    $('.saveBtn').on('click', saveTask)
     function updateRowColor() {
         let currentHour = moment().hour();
         $('.time-block').each(function () {
@@ -50,20 +53,16 @@ $(document).ready(function () {
         )
     };
 
-    init();
-    $('.saveBtn').on('click', saveTask)
 
     function saveTask() {
-        savedMessage()
         let timeData = $(this).parent().attr("data-time");
         let textValue = $(this).prev().val();
         localStorage.setItem(timeData, textValue);
+        savedMessage()
     }
 
     function savedMessage() {
-        $("#saved").show().delay(300).fadeOut();
+        $("#saveBtn").show().delay(300).fadeOut();
     }
-
-
 
 });

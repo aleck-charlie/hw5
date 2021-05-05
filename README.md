@@ -2,4 +2,4 @@ For this work scheduler project, I created time-block rows using JQuery and a fo
 
 I added in todays day using moment.js, and used if statements to color current, past and present hour.
 
-Moving forward I want to be able to pull from saved storage to display saved tasks using localStorage.getItem, and debug my savedMessage function so it shows a message when saved button is clicked.
+Moving forward I want to be able to show saved tasks from localStorage and have "saved!" message appear when save button is clicked
